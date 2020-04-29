@@ -14,17 +14,17 @@ class CookieBanner extends React.Component {
     super(props);
 
     this.state = {
-      preferencesCookies: true,
-      statisticsCookies: true,
-      marketingCookies: false,
+      preferencesCookies: this.props.preferencesOptionInitiallyChecked || false,
+      statisticsCookies: this.props.statisticsOptionInitiallyChecked || false,
+      marketingCookies: this.props.marketingOptionInitiallyChecked || false,
     };
 
     this.onScroll = this.onScroll.bind(this);
     this.onTogglePreferencesCookies = this.onTogglePreferencesCookies.bind(this);
     this.onToggleStatisticsCookies = this.onToggleStatisticsCookies.bind(this);
     this.onToggleMarketingCookies = this.onToggleMarketingCookies.bind(this);
-    this.confirm = this.confirm.bind(this);
-    this.decline = this.decline.bind(this);
+    this.confirmAll = this.confirmAll.bind(this);
+    this.confirmSelection = this.confirmSelection.bind(this);
     this.consetsCallback = this.consetsCallback.bind(this);
 
     this.cookies = new Cookies();
@@ -57,7 +57,7 @@ class CookieBanner extends React.Component {
   }
 
   onScroll() {
-    this.confirm();
+    this.confirmAll();
   }
 
   onTogglePreferencesCookies() {
@@ -75,7 +75,16 @@ class CookieBanner extends React.Component {
     this.setState({ marketingCookies: !marketingCookies });
   }
 
-  confirm() {
+  confirmAll() {
+    this.cookies.set(CONSENT_GIVEN);
+    this.cookies.set(PREFERENCES_COOKIE);
+    this.cookies.set(STATISTICS_COOKIE);
+    this.cookies.set(MARKETING_COOKIE);
+
+    this.forceUpdate();
+  }
+
+  confirmSelection() {
     const { preferencesCookies, statisticsCookies, marketingCookies } = this.state;
 
     this.cookies.set(CONSENT_GIVEN);
@@ -97,25 +106,6 @@ class CookieBanner extends React.Component {
     } else {
       this.cookies.remove(MARKETING_COOKIE);
     }
-
-    this.forceUpdate();
-  }
-
-  decline() {
-    const {
-      onDeclinePreferences = Function,
-      onDeclineStatistics = Function,
-      onDeclineMarketing = Function,
-    } = this.props;
-
-    this.cookies.set(CONSENT_GIVEN);
-    this.cookies.remove(PREFERENCES_COOKIE);
-    this.cookies.remove(STATISTICS_COOKIE);
-    this.cookies.remove(MARKETING_COOKIE);
-
-    onDeclinePreferences();
-    onDeclineStatistics();
-    onDeclineMarketing();
 
     this.forceUpdate();
   }
@@ -167,9 +157,9 @@ class CookieBanner extends React.Component {
       preferencesOptionText,
       statisticsOptionText,
       marketingOptionText,
-      showDeclineButton,
-      acceptButtonText,
-      declineButtonText,
+      showAcceptSelectionButton,
+      acceptAllButtonText,
+      acceptSelectionButtonText,
       showPreferencesOption,
       showStatisticsOption,
       showMarketingOption,
@@ -190,17 +180,20 @@ class CookieBanner extends React.Component {
       preferencesOptionText,
       statisticsOptionText,
       marketingOptionText,
-      showDeclineButton,
-      acceptButtonText,
-      declineButtonText,
+      showAcceptSelectionButton,
+      acceptAllButtonText,
+      acceptSelectionButtonText,
       showPreferencesOption,
       showStatisticsOption,
       showMarketingOption,
+      preferencesOptionInitiallyChecked: this.props.preferencesOptionInitiallyChecked,
+      statisticsOptionInitiallyChecked: this.props.statisticsOptionInitiallyChecked,
+      marketingOptionInitiallyChecked: this.props.marketingOptionInitiallyChecked,
       onTogglePreferencesCookies: this.onTogglePreferencesCookies,
       onToggleStatisticsCookies: this.onToggleStatisticsCookies,
       onToggleMarketingCookies: this.onToggleMarketingCookies,
-      onDecline: this.decline,
-      onConfirm: this.confirm,
+      onConfirmSelection: this.confirmSelection,
+      onConfirmAll: this.confirmAll,
     };
 
     return (<CookieBannerContent {...contentProps} />);
@@ -217,13 +210,16 @@ CookieBanner.protoTypes = {
   preferencesOptionText: PropTypes.string,
   statisticsOptionText: PropTypes.string,
   marketingOptionText: PropTypes.string,
-  acceptButtonText: PropTypes.string,
-  declineButtonText: PropTypes.string,
-  showDeclineButton: PropTypes.bool,
+  acceptAllButtonText: PropTypes.string,
+  acceptSelectionButtonText: PropTypes.string,
+  showAcceptSelectionButton: PropTypes.bool,
   dismissOnScroll: PropTypes.bool,
   showPreferencesOption: PropTypes.bool,
   showStatisticsOption: PropTypes.bool,
   showMarketingOption: PropTypes.bool,
+  preferencesOptionInitiallyChecked: PropTypes.bool,
+  statisticsOptionInitiallyChecked: PropTypes.bool,
+  marketingOptionInitiallyChecked: PropTypes.bool,
   onAccept: PropTypes.func,
   onAcceptPreferences: PropTypes.func,
   onAcceptStatistics: PropTypes.func,

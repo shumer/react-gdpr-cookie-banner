@@ -1,41 +1,66 @@
 # React Cookie Law
-
-[![npm version](https://badge.fury.io/js/%40palmabit%2Freact-cookie-law.svg)](https://badge.fury.io/js/%40palmabit%2Freact-cookie-law) [![Build Status](https://travis-ci.org/Palmabit-IT/react-cookie-law.svg?branch=master)](https://travis-ci.org/Palmabit-IT/react-cookie-law) [![Coverage Status](https://coveralls.io/repos/github/Palmabit-IT/react-cookie-law/badge.svg?branch=master)](https://coveralls.io/github/Palmabit-IT/react-cookie-law?branch=master)
+<!-- 
+[![npm version](https://badge.fury.io/js/%40palmabit%2Freact-cookie-law.svg)](https://badge.fury.io/js/%40palmabit%2Freact-cookie-law) [![Build Status](https://travis-ci.org/Palmabit-IT/react-cookie-law.svg?branch=master)](https://travis-ci.org/Palmabit-IT/react-cookie-law) [![Coverage Status](https://coveralls.io/repos/github/Palmabit-IT/react-cookie-law/badge.svg?branch=master)](https://coveralls.io/github/Palmabit-IT/react-cookie-law?branch=master) -->
 
 A React Cookie Banner component GDPR compliance.
 
-![Preview](https://raw.githubusercontent.com/Palmabit-IT/react-cookie-law/master/banner_preview.png)
+![Preview](https://raw.githubusercontent.com/qeeps/react-cookie-law/master/banner_preview.png)
 
 ## Install
 
 ```
-yarn add @palmabit/react-cookie-law
+yarn add @qeeps/react-cookie-law
 ```
 
 or
 
 ```
-npm install --save @palmabit/react-cookie-law
+npm install --save @qeeps/react-cookie-law
 ```
 
 ## Usage
 
 ```js
-import { CookieBanner } from '@palmabit/react-cookie-law';
+import { CookieBanner } from '@qeeps/react-cookie-law';
 
 React.renderComponent(
   <div>
     <CookieBanner
       message="Cookie banner message"
-      onAccept = {() => {}}
-      onAcceptPreferences = {() => {}}
-      onAcceptStatistics = {() => {}}
-      onAcceptMarketing = {() => {}}
+      onAcceptPreferences = {() => { 
+        // load your preferences trackers here
+      }}
+      onAcceptStatistics = {() => {
+        // load your statistics trackers here
+      }}
+      onAcceptMarketing = {() => {
+        // load your marketing trackers here
+      }}
     />
   </div>,
   document.body
 );
 ```
+
+### Differences
+This is a fork of https://github.com/Palmabit-IT/react-cookie-law
+
+Custom adjustments are:
+
+1. Change "Accept"-Button to "Accept All"-Button
+When user clicks "Accept All" all options are getting selected and respective cookies are set.
+
+2. Change "Decline"-Button to "Accept Selection"-Button
+The Decline-Button got removed and therefor a "Accept Selection"-Button got introduced which basically just sets the selected cookies.
+Initially - if no checkbox is selected - this button just sets the necessary cookies.
+
+3. Introduced options to set an initial state for each checkbox:
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+| **preferencesOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *preferences* checkbox |
+| **statisticsOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *statistics* checkbox |
+| **marketingOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *marketing* checkbox |
+
 
 ### Options
 
@@ -49,13 +74,16 @@ React.renderComponent(
 | **preferencesOptionText** | string | "Preferences" | *optional*. Text for the *preferences* cookies checkbox |
 | **statisticsOptionText** | string | "Statistics" | *optional*. Text for the *statistics* cookies checkbox |
 | **marketingOptionText** | string | "Marketing" | *optional*. Text for the *marketing* cookies checkbox |
-| **acceptButtonText** | string | "Accept" | *optional*. Text for the *accept* button |
-| **declineButtonText** | string | "Decline" | *optional*. Text for the *decline* button |
-| **showDeclineButton** | bool | false | *optional*. Show or hide the *decline* button |
+| **acceptAllButtonText** | string | "Accept All" | *optional*. Text for the *acceptAll* button |
+| **acceptSelectionButtonText** | string | "Accept Selection" | *optional*. Text for the *acceptSelection* button |
+| **showAcceptSelectionButton** | bool | false | *optional*. Show or hide the *acceptSelection* button |
 | **dismissOnScroll** | bool | false | *optional*. Enable or disable the dismissing on scroll of the banner |
 | **showPreferencesOption** | bool | true | *optional*. Show or hide the *preferences* checkbox |
 | **showStatisticsOption** | bool | true | *optional*. Show or hide the *statistics* checkbox |
 | **showMarketingOption** | bool | true | *optional*. Show or hide the *marketing* checkbox |
+| **preferencesOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *preferences* checkbox |
+| **statisticsOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *statistics* checkbox |
+| **marketingOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *marketing* checkbox |
 | **onAccept** | function | Function | *optional*. Callback called when the consent is given |
 | **onAcceptPreferences** | function | Function | *optional*. Callback called if *preferences* cookies is accepted |
 | **onAcceptStatistics** | function | Function | *optional*. Callback called if *statistics* cookies is accepted |

@@ -241,7 +241,7 @@ ShallowWrapper {
           }
         >
           <button
-            className="react-cookie-law-accept-btn"
+            className="react-cookie-law-accept-all-btn"
             onClick={[Function]}
             style={
               Object {
@@ -263,7 +263,7 @@ ShallowWrapper {
             type="button"
           >
             <span>
-              Accept
+              Accept All
             </span>
           </button>
         </div>
@@ -497,7 +497,7 @@ ShallowWrapper {
             }
           >
             <button
-              className="react-cookie-law-accept-btn"
+              className="react-cookie-law-accept-all-btn"
               onClick={[Function]}
               style={
                 Object {
@@ -519,7 +519,7 @@ ShallowWrapper {
               type="button"
             >
               <span>
-                Accept
+                Accept All
               </span>
             </button>
           </div>,
@@ -949,7 +949,7 @@ ShallowWrapper {
             "children": Array [
               false,
               <button
-                className="react-cookie-law-accept-btn"
+                className="react-cookie-law-accept-all-btn"
                 onClick={[Function]}
                 style={
                   Object {
@@ -971,7 +971,7 @@ ShallowWrapper {
                 type="button"
               >
                 <span>
-                  Accept
+                  Accept All
                 </span>
               </button>,
             ],
@@ -989,9 +989,9 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": <span>
-                  Accept
+                  Accept All
                 </span>,
-                "className": "react-cookie-law-accept-btn",
+                "className": "react-cookie-law-accept-all-btn",
                 "onClick": [Function],
                 "style": Object {
                   "backgroundColor": "#000000",
@@ -1016,10 +1016,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Accept",
+                  "children": "Accept All",
                 },
                 "ref": null,
-                "rendered": "Accept",
+                "rendered": "Accept All",
                 "type": "span",
               },
               "type": "button",
@@ -1260,7 +1260,7 @@ ShallowWrapper {
             }
           >
             <button
-              className="react-cookie-law-accept-btn"
+              className="react-cookie-law-accept-all-btn"
               onClick={[Function]}
               style={
                 Object {
@@ -1282,7 +1282,7 @@ ShallowWrapper {
               type="button"
             >
               <span>
-                Accept
+                Accept All
               </span>
             </button>
           </div>
@@ -1516,7 +1516,7 @@ ShallowWrapper {
               }
             >
               <button
-                className="react-cookie-law-accept-btn"
+                className="react-cookie-law-accept-all-btn"
                 onClick={[Function]}
                 style={
                   Object {
@@ -1538,7 +1538,7 @@ ShallowWrapper {
                 type="button"
               >
                 <span>
-                  Accept
+                  Accept All
                 </span>
               </button>
             </div>,
@@ -1968,7 +1968,7 @@ ShallowWrapper {
               "children": Array [
                 false,
                 <button
-                  className="react-cookie-law-accept-btn"
+                  className="react-cookie-law-accept-all-btn"
                   onClick={[Function]}
                   style={
                     Object {
@@ -1990,7 +1990,7 @@ ShallowWrapper {
                   type="button"
                 >
                   <span>
-                    Accept
+                    Accept All
                   </span>
                 </button>,
               ],
@@ -2008,9 +2008,9 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": <span>
-                    Accept
+                    Accept All
                   </span>,
-                  "className": "react-cookie-law-accept-btn",
+                  "className": "react-cookie-law-accept-all-btn",
                   "onClick": [Function],
                   "style": Object {
                     "backgroundColor": "#000000",
@@ -2035,10 +2035,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Accept",
+                    "children": "Accept All",
                   },
                   "ref": null,
-                  "rendered": "Accept",
+                  "rendered": "Accept All",
                   "type": "span",
                 },
                 "type": "button",

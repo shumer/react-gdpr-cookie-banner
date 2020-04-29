@@ -23,8 +23,8 @@ describe('CookieBannerContent component', () => {
       preferencesOptionText: 'Preferences',
       statisticsOptionText: 'Statistics',
       marketingOptionText: 'Marketing',
-      acceptButtonText: 'Accept',
-      declineButtonText: 'Decline',
+      acceptAllButtonText: 'Accept All',
+      acceptSelectionButtonText: 'Accept Selection',
     };
 
     const component = mount(
@@ -48,36 +48,36 @@ describe('CookieBannerContent component', () => {
 
   test('should click confirm button', () => {
     const props = {
-      onConfirm: jest.fn(),
+      onConfirmAll: jest.fn(),
     };
 
     const component = mount(
       <CookieBannerContent {...props} />,
     );
 
-    component.find('.react-cookie-law-accept-btn').simulate('click');
+    component.find('.react-cookie-law-accept-all-btn').simulate('click');
 
-    expect(props.onConfirm).toHaveBeenCalledTimes(1);
+    expect(props.onConfirmAll).toHaveBeenCalledTimes(1);
   });
 
-  test('should click decline button', () => {
+  test('should click accept selection button', () => {
     const props = {
-      onDecline: jest.fn(),
-      showDeclineButton: true,
+      onConfirmSelection: jest.fn(),
+      showAcceptSelectionButton: true,
     };
 
     const component = mount(
       <CookieBannerContent {...props} />,
     );
 
-    component.find('.react-cookie-law-decline-btn').simulate('click');
+    component.find('.react-cookie-law-accept-selection-btn').simulate('click');
 
-    expect(props.onDecline).toHaveBeenCalledTimes(1);
+    expect(props.onConfirmSelection).toHaveBeenCalledTimes(1);
   });
 
   test('should hide preferences checkbox', () => {
     const props = {
-      onDecline: jest.fn(),
+      onConfirmSelection: jest.fn(),
       showPreferencesOption: false,
     };
 
@@ -90,7 +90,7 @@ describe('CookieBannerContent component', () => {
 
   test('should hide statistics checkbox', () => {
     const props = {
-      onDecline: jest.fn(),
+      onConfirmSelection: jest.fn(),
       showStatisticsOption: false,
     };
 
@@ -103,7 +103,7 @@ describe('CookieBannerContent component', () => {
 
   test('should hide marketing checkbox', () => {
     const props = {
-      onDecline: jest.fn(),
+      onConfirmSelection: jest.fn(),
       showMarketingOption: false,
     };
 
@@ -116,7 +116,7 @@ describe('CookieBannerContent component', () => {
 
   test('should show all checkboxes as default', () => {
     const props = {
-      onDecline: jest.fn(),
+      onConfirmSelection: jest.fn(),
     };
 
     const component = mount(

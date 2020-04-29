@@ -13,17 +13,20 @@ export default (props = {}) => {
     preferencesOptionText = 'Preferences',
     statisticsOptionText = 'Statistics',
     marketingOptionText = 'Marketing',
-    showDeclineButton = false,
-    acceptButtonText = 'Accept',
-    declineButtonText = 'Decline',
+    showAcceptSelectionButton = false,
+    acceptAllButtonText = 'Accept All',
+    acceptSelectionButtonText = 'Accept Selection',
     showPreferencesOption = true,
     showStatisticsOption = true,
     showMarketingOption = true,
+    preferencesOptionInitiallyChecked = false,
+    statisticsOptionInitiallyChecked = false,
+    marketingOptionInitiallyChecked = false,
     onTogglePreferencesCookies = Function,
     onToggleStatisticsCookies = Function,
     onToggleMarketingCookies = Function,
-    onDecline = Function,
-    onConfirm = Function,
+    onConfirmSelection = Function,
+    onConfirmAll = Function,
   } = props;
 
   const {
@@ -62,7 +65,7 @@ export default (props = {}) => {
                 text={preferencesOptionText}
                 styles={cookieOptionStyle}
                 onChange={onTogglePreferencesCookies}
-                checked
+                checked={preferencesOptionInitiallyChecked}
               />
             )
           }
@@ -74,7 +77,7 @@ export default (props = {}) => {
                 text={statisticsOptionText}
                 styles={cookieOptionStyle}
                 onChange={onToggleStatisticsCookies}
-                checked
+                checked={statisticsOptionInitiallyChecked}
               />
             )
           }
@@ -86,6 +89,7 @@ export default (props = {}) => {
                 text={marketingOptionText}
                 styles={cookieOptionStyle}
                 onChange={onToggleMarketingCookies}
+                checked={marketingOptionInitiallyChecked}
               />
             )
           }
@@ -95,15 +99,15 @@ export default (props = {}) => {
 
         <div className="react-cookie-law-button-wrapper" style={buttonWrapperStyle}>
           {
-            showDeclineButton && (
-              <button type="button" className="react-cookie-law-decline-btn" style={buttonStyle} onClick={() => onDecline()}>
-                <span>{declineButtonText}</span>
+            showAcceptSelectionButton && (
+              <button type="button" className="react-cookie-law-accept-selection-btn" style={buttonStyle} onClick={() => onConfirmSelection()}>
+                <span>{acceptSelectionButtonText}</span>
               </button>
             )
           }
 
-          <button type="button" className="react-cookie-law-accept-btn" style={buttonStyle} onClick={() => onConfirm()}>
-            <span>{acceptButtonText}</span>
+          <button type="button" className="react-cookie-law-accept-all-btn" style={buttonStyle} onClick={() => onConfirmAll()}>
+            <span>{acceptAllButtonText}</span>
           </button>
         </div>
       </div>
