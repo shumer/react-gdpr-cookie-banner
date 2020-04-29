@@ -18,6 +18,33 @@ or
 npm install --save @qeeps/react-cookie-law
 ```
 
+## Adjustments
+This is a fork of https://github.com/Palmabit-IT/react-cookie-law
+
+Custom adjustments are:
+
+1. Change "Accept"-Button to "Accept All"-Button
+
+When user clicks "Accept All" all options are getting selected and respective cookies are set.
+
+2. Change "Decline"-Button to "Accept Selection"-Button
+
+The Decline-Button got removed and therefor a "Accept Selection"-Button got introduced which basically just sets the selected cookies.
+Initially - if no checkbox is selected - this button just sets the necessary cookies.
+
+3. Checkbox-Labels are clickable:
+
+You can now click the labels to select/deselect the options
+
+4. Introduced options to set an initial state for each checkbox:
+
+|Name|Type|Default|Description|
+|----|----|-------|-----------|
+| **preferencesOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *preferences* checkbox |
+| **statisticsOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *statistics* checkbox |
+| **marketingOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *marketing* checkbox |
+
+
 ## Usage
 
 ```js
@@ -41,26 +68,6 @@ React.renderComponent(
   document.body
 );
 ```
-
-### Differences
-This is a fork of https://github.com/Palmabit-IT/react-cookie-law
-
-Custom adjustments are:
-
-1. Change "Accept"-Button to "Accept All"-Button
-When user clicks "Accept All" all options are getting selected and respective cookies are set.
-
-2. Change "Decline"-Button to "Accept Selection"-Button
-The Decline-Button got removed and therefor a "Accept Selection"-Button got introduced which basically just sets the selected cookies.
-Initially - if no checkbox is selected - this button just sets the necessary cookies.
-
-3. Introduced options to set an initial state for each checkbox:
-|Name|Type|Default|Description|
-|----|----|-------|-----------|
-| **preferencesOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *preferences* checkbox |
-| **statisticsOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *statistics* checkbox |
-| **marketingOptionInitiallyChecked** | bool | false | *optional*. Sets the inital state of the *marketing* checkbox |
-
 
 ### Options
 
@@ -92,7 +99,7 @@ Initially - if no checkbox is selected - this button just sets the necessary coo
 | **onDeclineStatistics** | function | Function | *optional*. Callback called if *statistics* cookies is declined |
 | **onDeclineMarketing** | function | Function | *optional*. Callback called if *marketing* cookies is declined |
 
-## Style
+### Style
 
 ```js
 <CookieBanner
@@ -116,6 +123,14 @@ Initially - if no checkbox is selected - this button just sets the necessary coo
 | **buttonWrapper** | Style for buttons wrapper (`.react-cookie-law-dialog` class) |
 | **button** | Style for buttons (`.react-cookie-law-dialog` class) |
 
+To style the buttons differently you can use the following classes:
+
+|Classname|Description|
+|----|----|
+| **react-cookie-law-accept-all-btn** | Styles the *acceptAll*-Button |
+| **react-cookie-law-accept-selection-btn** |  Styles the *acceptSelection*-Button |
+
+
 ## Test
 
 ```
@@ -130,7 +145,13 @@ npm test
 
 # Author
 
+## Original Author
+
 [Palmabit](https://www.palmabit.com)
+
+## Improvements
+
+[qeeps](https://www.qeeps.de)
 
 # Licence
 
