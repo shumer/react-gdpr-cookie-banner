@@ -37,6 +37,7 @@ class CookieOption extends React.Component {
 
     return (
       <div className="react-cookie-law-option-wrapper" style={optionWrapperStyle}>
+        <label style={optionLabelStyle}>
         <input
           type="checkbox"
           id={id}
@@ -46,7 +47,8 @@ class CookieOption extends React.Component {
           onChange={this.handleOnChange}
           {...isDisabled}
         />
-        <span style={optionLabelStyle}>{text}</span>
+        {text}
+        </label>
       </div>
     );
   }
