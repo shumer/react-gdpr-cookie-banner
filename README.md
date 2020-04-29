@@ -1,6 +1,6 @@
 # React Cookie Law
 
-[![npm version](https://badge.fury.io/js/%40palmabit%2Freact-cookie-law.svg)](https://badge.fury.io/js/%40palmabit%2Freact-cookie-law) [![Build Status](https://travis-ci.com/qeeps/react-cookie-law.svg?branch=master)](https://travis-ci.com/github/qeeps/react-cookie-law)
+[![Build Status](https://travis-ci.com/qeeps/react-cookie-law.svg?branch=master)](https://travis-ci.com/github/qeeps/react-cookie-law)
 
 A React Cookie Banner component GDPR compliance.
 
@@ -23,20 +23,20 @@ This is a fork of https://github.com/Palmabit-IT/react-cookie-law
 
 Custom adjustments are:
 
-1. Change "Accept"-Button to "Accept All"-Button
+**1. Change "Accept"-Button to "Accept All"-Button**
 
 When user clicks "Accept All" all options are getting selected and respective cookies are set.
 
-2. Change "Decline"-Button to "Accept Selection"-Button
+**2. Change "Decline"-Button to "Accept Selection"-Button**
 
 The Decline-Button got removed and therefor a "Accept Selection"-Button got introduced which basically just sets the selected cookies.
 Initially - if no checkbox is selected - this button just sets the necessary cookies.
 
-3. Checkbox-Labels are clickable:
+**3. Checkbox-Labels are clickable:**
 
 You can now click the labels to select/deselect the options
 
-4. Introduced options to set an initial state for each checkbox:
+**4. Introduced options to set an initial state for each checkbox:**
 
 |Name|Type|Default|Description|
 |----|----|-------|-----------|
