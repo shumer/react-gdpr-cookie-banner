@@ -41,9 +41,9 @@ describe('CookieBannerContent component', () => {
     expect(component.find('a.react-cookie-law-policy').prop('href')).toBe('/url-to-policy');
     expect(component.find('.react-cookie-law-policy').text()).toBe('Privacy Policy');
     expect(component.contains(<CookieOption id="check-required-cookies" text="Necessary" disabled checked styles={cookieOptionStyle} />)).toBeTruthy();
-    expect(component.contains(<CookieOption id="check-preferences-cookies" text="Preferences" onChange={Function} checked styles={cookieOptionStyle} />)).toBeTruthy();
-    expect(component.contains(<CookieOption id="check-statistics-cookies" text="Statistics" onChange={Function} checked styles={cookieOptionStyle} />)).toBeTruthy();
-    expect(component.contains(<CookieOption id="check-marketing-cookies" text="Marketing" onChange={Function} styles={cookieOptionStyle} />)).toBeTruthy();
+    expect(component.contains(<CookieOption id="check-preferences-cookies" text="Preferences" onChange={Function} checked={false} styles={cookieOptionStyle} />)).toBeTruthy();
+    expect(component.contains(<CookieOption id="check-statistics-cookies" text="Statistics" onChange={Function} checked={false} styles={cookieOptionStyle} />)).toBeTruthy();
+    expect(component.contains(<CookieOption id="check-marketing-cookies" text="Marketing" onChange={Function}  checked={false} styles={cookieOptionStyle} />)).toBeTruthy();
   });
 
   test('should click confirm button', () => {

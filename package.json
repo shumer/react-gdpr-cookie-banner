@@ -31,7 +31,8 @@
     "precommit": "lint-staged",
     "prepublish": "npm test && npm run build",
     "lint": "eslint 'src/**/*.js'",
-    "testCI": "npm run test && cat coverage/lcov.info | coveralls"
+    "testCI": "npm run test && cat coverage/lcov.info | coveralls",
+    "snap": "jest --updateSnapshot"
   },
   "dependencies": {
     "prop-types": "^15.6.2",

@@ -56,7 +56,7 @@ describe('CookieBanner component', () => {
 
     expect(component.html().length).toBeGreaterThan(0);
     expect(component.contains(CookieBannerContent)).toBeTruthy();
-    component.find(CookieBannerContent).prop('onConfirm')();
+    component.find(CookieBannerContent).prop('onConfirmAll')();
     expect(component.html()).toBeNull();
   });
 
@@ -67,7 +67,7 @@ describe('CookieBanner component', () => {
 
     expect(component.html().length).toBeGreaterThan(0);
     expect(component.contains(CookieBannerContent)).toBeTruthy();
-    component.find(CookieBannerContent).prop('onDecline')();
+    component.find(CookieBannerContent).prop('onConfirmSelection')();
     expect(component.html()).toBeNull();
   });
 
@@ -96,7 +96,7 @@ describe('CookieBanner component', () => {
       <CookieBanner message="Custom text" />,
     );
 
-    component.find(CookieBannerContent).prop('onConfirm')();
+    component.find(CookieBannerContent).prop('onConfirmAll')();
 
     expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
   });
@@ -106,7 +106,7 @@ describe('CookieBanner component', () => {
       <CookieBanner message="Custom text" />,
     );
 
-    component.find(CookieBannerContent).prop('onDecline')();
+    component.find(CookieBannerContent).prop('onConfirmSelection')();
 
     expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
   });
@@ -118,91 +118,49 @@ describe('CookieBanner component', () => {
     expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
   });
 
-  test('should give default consents at confirm', () => {
+  test('should accept all consents at confirm all', () => {
     const component = mount(
       <CookieBanner message="Custom text" />,
     );
 
-    component.find(CookieBannerContent).prop('onConfirm')();
+    component.find(CookieBannerContent).prop('onConfirmAll')();
 
     expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
     expect(document.cookie.indexOf('rcl_preferences_consent=true')).toBeGreaterThanOrEqual(0);
     expect(document.cookie.indexOf('rcl_statistics_consent=true')).toBeGreaterThanOrEqual(0);
-    expect(document.cookie.indexOf('rcl_marketing_consent=true')).toBeLessThan(0);
-  });
-
-  test('should remove consent for preferences cookie at confirm', () => {
-    const component = mount(
-      <CookieBanner message="Custom text" />,
-    );
-
-    component.find(CookieBannerContent).prop('onTogglePreferencesCookies')();
-    component.find(CookieBannerContent).prop('onConfirm')();
-
-    expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
-    expect(document.cookie.indexOf('rcl_preferences_consent=true')).toBeLessThan(0);
-  });
-
-  test('should give consent for preferences cookie at confirm', () => {
-    const component = mount(
-      <CookieBanner message="Custom text" />,
-    );
-
-    component.find(CookieBannerContent).prop('onTogglePreferencesCookies')();
-    component.find(CookieBannerContent).prop('onTogglePreferencesCookies')();
-    component.find(CookieBannerContent).prop('onConfirm')();
-
-    expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
-    expect(document.cookie.indexOf('rcl_preferences_consent=true')).toBeGreaterThanOrEqual(0);
-  });
-
-  test('should remove consent for statistics cookie at confirm', () => {
-    const component = mount(
-      <CookieBanner message="Custom text" />,
-    );
-
-    component.find(CookieBannerContent).prop('onToggleStatisticsCookies')();
-    component.find(CookieBannerContent).prop('onConfirm')();
-
-    expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
-    expect(document.cookie.indexOf('rcl_statistics_consent=true')).toBeLessThan(0);
-  });
-
-  test('should give consent for statistics cookie at confirm', () => {
-    const component = mount(
-      <CookieBanner message="Custom text" />,
-    );
-
-    component.find(CookieBannerContent).prop('onToggleStatisticsCookies')();
-    component.find(CookieBannerContent).prop('onToggleStatisticsCookies')();
-    component.find(CookieBannerContent).prop('onConfirm')();
-
-    expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
-    expect(document.cookie.indexOf('rcl_statistics_consent=true')).toBeGreaterThanOrEqual(0);
-  });
-
-  test('should give consent for marketing cookie at confirm', () => {
-    const component = mount(
-      <CookieBanner message="Custom text" />,
-    );
-
-    component.find(CookieBannerContent).prop('onToggleMarketingCookies')();
-    component.find(CookieBannerContent).prop('onConfirm')();
-
-    expect(document.cookie.indexOf('rcl_consent_given=true')).toBeGreaterThanOrEqual(0);
     expect(document.cookie.indexOf('rcl_marketing_consent=true')).toBeGreaterThanOrEqual(0);
   });
+  
+  test('should give consent to marketing only at confirm selected', () => {
+    const component = mount(
+      <CookieBanner message="Custom text" />,
+    );
 
-  test('shouldn\'t give consent at decline', () => {
+    component.find(CookieBannerContent).prop('onToggleMarketingCookies')();
+    component.find(CookieBannerContent).prop('onConfirmSelection')();
+
+    expect(document.cookie).toBe('rcl_consent_given=true; rcl_marketing_consent=true');
+  });
+
+  test('should give consent to statistics only at confirm selected', () => {
+    const component = mount(
+      <CookieBanner message="Custom text" />,
+    );
+
+    component.find(CookieBannerContent).prop('onToggleStatisticsCookies')();
+    component.find(CookieBannerContent).prop('onConfirmSelection')();
+
+    expect(document.cookie).toBe('rcl_consent_given=true; rcl_statistics_consent=true');
+  });
+
+  test('should give consent to preferences only at confirm selected', () => {
     const component = mount(
       <CookieBanner message="Custom text" />,
     );
 
     component.find(CookieBannerContent).prop('onTogglePreferencesCookies')();
-    component.find(CookieBannerContent).prop('onToggleStatisticsCookies')();
-    component.find(CookieBannerContent).prop('onToggleMarketingCookies')();
-    component.find(CookieBannerContent).prop('onDecline')();
+    component.find(CookieBannerContent).prop('onConfirmSelection')();
 
-    expect(document.cookie).toBe('rcl_consent_given=true');
+    expect(document.cookie).toBe('rcl_consent_given=true; rcl_preferences_consent=true');
   });
 });
