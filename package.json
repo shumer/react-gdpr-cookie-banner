@@ -1,6 +1,6 @@
 {
   "name": "@qeeps/react-gdpr-cookie-banner",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "GDPR compliant cookie banner for react",
   "author": "Alessandro Sarzina <a.sarzina@palmabit.com>",
   "contributors": [
