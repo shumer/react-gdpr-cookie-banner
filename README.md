@@ -1,21 +1,22 @@
-# React Cookie Law
+# React GDPR Cookie Banner
 
-[![Build Status](https://travis-ci.com/qeeps/react-cookie-law.svg?branch=master)](https://travis-ci.com/github/qeeps/react-cookie-law)
+[![Build Status](https://travis-ci.com/qeeps/react-cookie-law.svg?branch=master)](https://travis-ci.com/github/qeeps/react-gdpr-cookie-banner)
 
-A React Cookie Banner component GDPR compliance.
+A GDPR compliant Cookie Banner component for React.
 
-![Preview](https://raw.githubusercontent.com/qeeps/react-cookie-law/master/banner_preview.png)
+![Preview](https://raw.githubusercontent.com/qeeps/react-gdpr-cookie-banner/master/banner_preview.png)
+![Preview](https://raw.githubusercontent.com/qeeps/react-gdpr-cookie-banner/master/banner_preview_custom_style.png)
 
 ## Install
 
 ```
-yarn add @qeeps/react-cookie-law
+yarn add @qeeps/react-gdpr-cookie-banner
 ```
 
 or
 
 ```
-npm install --save @qeeps/react-cookie-law
+npm install --save @qeeps/react-gdpr-cookie-banner
 ```
 
 ## Adjustments
@@ -127,8 +128,11 @@ To style the buttons differently you can use the following classes:
 
 |Classname|Description|
 |----|----|
-| **react-cookie-law-accept-all-btn** | Styles the *acceptAll*-Button |
-| **react-cookie-law-accept-selection-btn** |  Styles the *acceptSelection*-Button |
+| **react-cookie-law-accept-all-btn** | Styles the *Accept All*-Button |
+| **react-cookie-law-accept-selection-btn** |  Styles the *Accept Selection*-Button |
+
+#### Example of a custom style:
+![Preview](https://raw.githubusercontent.com/qeeps/react-gdpr-cookie-banner/master/banner_preview_custom_style.png)
 
 
 ## Test
@@ -147,11 +151,11 @@ npm test
 
 ## Original Author
 
-[Palmabit](https://www.palmabit.com)
+[Palmabit-IT](https://www.palmabit.com)
 
 ## Improvements
 
-[qeeps](https://www.qeeps.de)
+[Daniel Engelhardt (qeeps.de)](https://www.qeeps.de)
 
 # Licence
 

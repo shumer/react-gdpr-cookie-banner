@@ -1,17 +1,20 @@
 {
-  "name": "@qeeps/react-cookie-law",
+  "name": "@qeeps/react-gdpr-cookie-banner",
   "version": "0.5.0",
-  "description": "React Cookie banner GDPR compliance",
+  "description": "GDPR compliant cookie banner for react",
   "author": "Alessandro Sarzina <a.sarzina@palmabit.com>",
+  "contributors": [
+    "Daniel Engelhardt <daniel.engelhardt@qeeps.de> (https://www.qeeps.de)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qeeps/react-cookie-law.git"
+    "url": "https://github.com/qeeps/react-gdpr-cookie-banner.git"
   },
   "bugs": {
-    "url": "https://github.com/qeeps/react-cookie-law/issues"
+    "url": "https://github.com/qeeps/react-gdpr-cookie-banner/issues"
   },
-  "homepage": "https://github.com/qeeps/react-cookie-law#readme",
+  "homepage": "https://github.com/qeeps/react-gdpr-cookie-banner#readme",
   "keywords": [
     "gdpr",
     "cookie",
