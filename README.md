@@ -49,7 +49,7 @@ You can now click the labels to select/deselect the options
 ## Usage
 
 ```js
-import { CookieBanner } from '@qeeps/react-cookie-law';
+import { CookieBanner } from '@qeeps/react-gdpr-cookie-banner';
 
 React.renderComponent(
   <div>
