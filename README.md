@@ -1,22 +1,22 @@
 # React GDPR Cookie Banner
 
-[![Build Status](https://travis-ci.com/qeeps/react-cookie-law.svg?branch=master)](https://travis-ci.com/github/qeeps/react-gdpr-cookie-banner)
+[![Build Status](https://travis-ci.com/keepist/react-cookie-law.svg?branch=master)](https://travis-ci.com/github/keepist/react-gdpr-cookie-banner)
 
 A GDPR compliant Cookie Banner component for React.
 
-![Preview](https://raw.githubusercontent.com/qeeps/react-gdpr-cookie-banner/master/banner_preview.png)
-![Preview](https://raw.githubusercontent.com/qeeps/react-gdpr-cookie-banner/master/banner_preview_custom_style.png)
+![Preview](https://raw.githubusercontent.com/keepist/react-gdpr-cookie-banner/master/banner_preview.png)
+![Preview](https://raw.githubusercontent.com/keepist/react-gdpr-cookie-banner/master/banner_preview_custom_style.png)
 
 ## Install
 
 ```
-yarn add @qeeps/react-gdpr-cookie-banner
+yarn add @keepist/react-gdpr-cookie-banner
 ```
 
 or
 
 ```
-npm install --save @qeeps/react-gdpr-cookie-banner
+npm install --save @keepist/react-gdpr-cookie-banner
 ```
 
 ## Adjustments
@@ -49,7 +49,7 @@ You can now click the labels to select/deselect the options
 ## Usage
 
 ```js
-import { CookieBanner } from '@qeeps/react-gdpr-cookie-banner';
+import { CookieBanner } from '@keepist/react-gdpr-cookie-banner';
 
 React.renderComponent(
   <div>
@@ -132,7 +132,7 @@ To style the buttons differently you can use the following classes:
 | **react-cookie-law-accept-selection-btn** |  Styles the *Accept Selection*-Button |
 
 #### Example of a custom style:
-![Preview](https://raw.githubusercontent.com/qeeps/react-gdpr-cookie-banner/master/banner_preview_custom_style.png)
+![Preview](https://raw.githubusercontent.com/keepist/react-gdpr-cookie-banner/master/banner_preview_custom_style.png)
 
 
 ## Test
@@ -155,7 +155,7 @@ npm test
 
 ## Improvements
 
-[Daniel Engelhardt (qeeps.de)](https://www.qeeps.de)
+[Daniel Engelhardt (keepist.de)](https://www.keepist.de)
 
 # Licence
 

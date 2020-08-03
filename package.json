@@ -1,20 +1,20 @@
 {
-  "name": "@qeeps/react-gdpr-cookie-banner",
-  "version": "0.7.0",
+  "name": "@keepist/react-gdpr-cookie-banner",
+  "version": "0.4.0",
   "description": "GDPR compliant cookie banner for react",
   "author": "Alessandro Sarzina <a.sarzina@palmabit.com>",
   "contributors": [
-    "Daniel Engelhardt <daniel.engelhardt@qeeps.de> (https://www.qeeps.de)"
+    "Daniel Engelhardt <daniel.engelhardt@keepist.de> (https://www.keepist.de)"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qeeps/react-gdpr-cookie-banner.git"
+    "url": "git+https://github.com/keepist/react-gdpr-cookie-banner.git"
   },
   "bugs": {
-    "url": "https://github.com/qeeps/react-gdpr-cookie-banner/issues"
+    "url": "https://github.com/keepist/react-gdpr-cookie-banner/issues"
   },
-  "homepage": "https://github.com/qeeps/react-gdpr-cookie-banner#readme",
+  "homepage": "https://github.com/keepist/react-gdpr-cookie-banner#readme",
   "keywords": [
     "gdpr",
     "cookie",
@@ -22,14 +22,15 @@
     "banner",
     "cookie banner",
     "react cookie banner",
-    "react"
+    "react",
+    "dsgvo"
   ],
   "main": "dist",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "./node_modules/.bin/webpack -p",
+    "build": "webpack -p",
     "test": "jest --coverage",
     "precommit": "lint-staged",
     "prepublish": "npm test && npm run build",
@@ -83,5 +84,8 @@
     "hooks": {
       "pre-commit": "npm run precommit"
     }
+  },
+  "directories": {
+    "test": "test"
   }
 }
