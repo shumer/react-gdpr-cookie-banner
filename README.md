@@ -10,13 +10,13 @@ A GDPR compliant Cookie Banner component for React.
 ## Install
 
 ```
-yarn add @keepist/react-gdpr-cookie-banner
+yarn add @ashumenko/react-gdpr-cookie-banner
 ```
 
 or
 
 ```
-npm install --save @keepist/react-gdpr-cookie-banner
+npm install --save @ashumenko/react-gdpr-cookie-banner
 ```
 
 ## Adjustments
@@ -55,7 +55,7 @@ React.renderComponent(
   <div>
     <CookieBanner
       message="Cookie banner message"
-      onAcceptPreferences = {() => { 
+      onAcceptPreferences = {() => {
         // load your preferences trackers here
       }}
       onAcceptStatistics = {() => {

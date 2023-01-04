@@ -13,6 +13,8 @@ export default (props = {}) => {
     preferencesOptionText = 'Preferences',
     statisticsOptionText = 'Statistics',
     marketingOptionText = 'Marketing',
+    showDeclineButton = true,
+    declineButtonText = 'Decline',
     showAcceptSelectionButton = false,
     acceptAllButtonText = 'Accept All',
     acceptSelectionButtonText = 'Accept Selection',
@@ -25,6 +27,7 @@ export default (props = {}) => {
     onTogglePreferencesCookies = Function,
     onToggleStatisticsCookies = Function,
     onToggleMarketingCookies = Function,
+    onDecline = Function,
     onConfirmSelection = Function,
     onConfirmAll = Function,
   } = props;
@@ -98,6 +101,13 @@ export default (props = {}) => {
         <a href={policyLink} className="react-cookie-law-policy" style={policyStyle}>{privacyPolicyLinkText}</a>
 
         <div className="react-cookie-law-button-wrapper" style={buttonWrapperStyle}>
+          {
+            showDeclineButton && (
+              <button type="button" className="react-cookie-law-decline-btn" style={buttonStyle} onClick={() => onDecline()}>
+                <span>{declineButtonText}</span>
+              </button>
+            )
+          }
           {
             showAcceptSelectionButton && (
               <button type="button" className="react-cookie-law-accept-selection-btn" style={buttonStyle} onClick={() => onConfirmSelection()}>

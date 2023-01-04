@@ -23,6 +23,7 @@ class CookieBanner extends React.Component {
     this.onTogglePreferencesCookies = this.onTogglePreferencesCookies.bind(this);
     this.onToggleStatisticsCookies = this.onToggleStatisticsCookies.bind(this);
     this.onToggleMarketingCookies = this.onToggleMarketingCookies.bind(this);
+    this.decline = this.decline.bind(this);
     this.confirmAll = this.confirmAll.bind(this);
     this.confirmSelection = this.confirmSelection.bind(this);
     this.consetsCallback = this.consetsCallback.bind(this);
@@ -110,6 +111,25 @@ class CookieBanner extends React.Component {
     this.forceUpdate();
   }
 
+  decline() {
+    const {
+      onDeclinePreferences = Function,
+      onDeclineStatistics = Function,
+      onDeclineMarketing = Function,
+    } = this.props;
+
+    this.cookies.set(CONSENT_GIVEN);
+    this.cookies.remove(PREFERENCES_COOKIE);
+    this.cookies.remove(STATISTICS_COOKIE);
+    this.cookies.remove(MARKETING_COOKIE);
+
+    onDeclinePreferences();
+    onDeclineStatistics();
+    onDeclineMarketing();
+
+    this.forceUpdate();
+  }
+
   consetsCallback() {
     const {
       onAccept = Function,
@@ -157,6 +177,7 @@ class CookieBanner extends React.Component {
       preferencesOptionText,
       statisticsOptionText,
       marketingOptionText,
+      declineButtonText,
       showAcceptSelectionButton,
       acceptAllButtonText,
       acceptSelectionButtonText,
@@ -180,6 +201,7 @@ class CookieBanner extends React.Component {
       preferencesOptionText,
       statisticsOptionText,
       marketingOptionText,
+      declineButtonText,
       showAcceptSelectionButton,
       acceptAllButtonText,
       acceptSelectionButtonText,
@@ -189,6 +211,7 @@ class CookieBanner extends React.Component {
       preferencesOptionInitiallyChecked: this.props.preferencesOptionInitiallyChecked,
       statisticsOptionInitiallyChecked: this.props.statisticsOptionInitiallyChecked,
       marketingOptionInitiallyChecked: this.props.marketingOptionInitiallyChecked,
+      onDecline: this.decline,
       onTogglePreferencesCookies: this.onTogglePreferencesCookies,
       onToggleStatisticsCookies: this.onToggleStatisticsCookies,
       onToggleMarketingCookies: this.onToggleMarketingCookies,
@@ -210,6 +233,7 @@ CookieBanner.protoTypes = {
   preferencesOptionText: PropTypes.string,
   statisticsOptionText: PropTypes.string,
   marketingOptionText: PropTypes.string,
+  declineButtonText: PropTypes.string,
   acceptAllButtonText: PropTypes.string,
   acceptSelectionButtonText: PropTypes.string,
   showAcceptSelectionButton: PropTypes.bool,

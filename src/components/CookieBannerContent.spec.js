@@ -23,6 +23,7 @@ describe('CookieBannerContent component', () => {
       preferencesOptionText: 'Preferences',
       statisticsOptionText: 'Statistics',
       marketingOptionText: 'Marketing',
+      declineButtonText: 'Decline',
       acceptAllButtonText: 'Accept All',
       acceptSelectionButtonText: 'Accept Selection',
     };
